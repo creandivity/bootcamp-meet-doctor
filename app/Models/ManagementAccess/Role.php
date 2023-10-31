@@ -11,7 +11,7 @@ class Role extends Model
     //use HasFatory;
     use SoftDeletes;
 
-    public $table = 'permission_role';
+    public $table = 'role';
 
     protected $dates = [
         'created_at',
@@ -25,4 +25,8 @@ class Role extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function permission_role(){
+        return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'role_id');
+    }
 }
