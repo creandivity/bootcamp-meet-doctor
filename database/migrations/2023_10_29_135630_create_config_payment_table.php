@@ -15,6 +15,8 @@ class CreateConfigPaymentTable extends Migration
     {
         Schema::create('config_payment', function (Blueprint $table) {
             $table->id();
+            $table->double('fee', 15, 3)->nullable();
+            $table->double('vat', 15, 3)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
