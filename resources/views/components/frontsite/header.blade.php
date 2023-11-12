@@ -36,23 +36,17 @@
 
         <!-- Button (no authenticated) -->
         <div class="hidden lg:ml-10 lg:flex lg:items-center">
-          <a
-            href="src/pages/sign-in.html"
-            class="inline-flex items-center rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3"
-          >
-            Sign In
-          </a>
+            <a href="{{ route('login')}}" class="inline-flex items-center rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3">
+                Sign In
+            </a>
         </div>
 
         <!-- Mobile Toggle button -->
         <div class="-mr-2 flex items-center lg:hidden">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#0D63F3]"
-            aria-controls="mobile-menu"
-            aria-expanded="false"
-            @click="navbarMobileOpen = ! navbarMobileOpen"
-          >
+            <button type="button"
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#0D63F3]"
+                aria-controls="mobile-menu" aria-expanded="false"
+                @click="navbarMobileOpen = ! navbarMobileOpen">
             <span class="sr-only">Open main menu</span>
             
             <!--
@@ -139,7 +133,7 @@
         class="py-3 border-gray-200"
       >
        <a
-            href="src/pages/sign-in.html"
+            href="{{ route('login')}}"
             class="flex items-center justify-center text-center mx-4 rounded-full text-[#1E2B4F] text-lg font-medium bg-[#F2F6FE] px-10 py-3"
         >
           Sign In
