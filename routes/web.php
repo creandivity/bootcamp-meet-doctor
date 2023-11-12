@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Frontsite\LandingController;
+use App\Http\Controllers\Frontsite\AppointmentController;
+use App\Http\Controllers\Frontsite\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::resource('/', LandingController::class);
+
+Route::group(['prefix' => 'backsite', 'as' => 'backsite', 'midleware' => ['auth: sanctum', 'verified']], function (){
+    Route::resource('appointment', AppointmentController::class);
+    Route::resource('payment', PaymentController::class);
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
